@@ -1,0 +1,35 @@
+{
+  "$schema": "https://angular.io/config/application",
+  "version": 1,
+  "projects": {
+    "minimal-angular-app": {
+      "projectType": "application",
+      "root": "",
+      "sourceRoot": "src",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/minimal-angular-app",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "assets": ["src/favicon.ico"],
+            "styles": ["src/styles.css"]
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "minimal-angular-app:build"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "minimal-angular-app",
+  "cli": {
+    "analytics": false
+  }
+}
