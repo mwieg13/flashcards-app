@@ -1,2 +1,38 @@
-<h1>Minimal Angular App</h1>
-<p>Welcome — this is a minimal Angular boilerplate.</p>
+<div class="container">
+  <div *ngIf="isLoading" class="loading">
+    Loading flashcards...
+  </div>
+
+  <div *ngIf="error" class="error">
+    {{ error }}
+    <button (click)="loadFlashcards()">Retry</button>
+  </div>
+
+  <div *ngIf="!isLoading && !error && flashcards.length > 0" class="flashcard-container">
+    
+    <div class="grid-container">
+
+      <div class="column col1">
+        <button (click)="prevCard()" [disabled]="isTransitioning">PREV</button>
+      </div>
+      <div class="column col2">
+        <div class="flashcard" [class.flipped]="isFlipped" (click)="toggleFlip()">
+          <div class="flashcard-inner">
+            <div class="flashcard-front">
+              <p>{{currentCard?.question}}</p>
+            </div>
+            <div class="flashcard-back">
+              <p>{{currentCard?.answer}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="column col3">
+        <button (click)="nextCard()" [disabled]="isTransitioning">NEXT</button>
+      </div>
+    </div>
+
+  <div *ngIf="!isLoading && !error && flashcards.length === 0" class="no-cards">
+    No flashcards available.
+  </div>
+</div>
