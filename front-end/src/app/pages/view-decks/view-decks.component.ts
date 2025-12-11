@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { EditDeckDialogComponent } from '../../dialogs/edit-deck/edit-deck-dialog.component';
 
 export interface FlashcardSummary {
   sideOne: string,
@@ -37,5 +39,12 @@ export class ViewDecksComponent {
     }
   ];
 
-  constructor() {}
+  constructor(private dialog: MatDialog) {}
+
+  openDeckModal(deck: DeckSummary) {
+
+    this.dialog.open(EditDeckDialogComponent, {
+      data: deck
+    });
+  }
 }

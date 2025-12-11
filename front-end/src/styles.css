@@ -1,2 +1,5 @@
-/* Minimal styles */
+/* Angular Material theme */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* Minimal app styles */
 body { font-family: Arial, sans-serif; margin: 16px; }
