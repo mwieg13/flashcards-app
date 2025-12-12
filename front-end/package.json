@@ -1,10 +1,10 @@
 {
-  "name": "minimal-angular-app",
+  "name": "flashcards-app",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "ng": "ng",
-    "start": "npx -y @angular/cli@latest serve --open",
+    "start": "npx -y @angular/cli@latest serve",
     "build": "npx -y @angular/cli@latest build",
     "test": "echo \"No tests configured\" && exit 0"
   },

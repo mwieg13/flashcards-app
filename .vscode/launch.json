@@ -1,0 +1,26 @@
+{
+  "version": "0.2.0",
+  // In order for this configuration to work, must setup firefox for debugging
+  //  and install the 'Debugger for Firefox' extension into VS Code
+  "configurations": [
+    {
+      "name": "Debug Angular in Firefox",
+      "type": "firefox",
+      "request": "launch",
+      "url": "http://localhost:4200", // Match the port your app is running on
+      "webRoot": "${workspaceFolder}/front-end",
+      "pathMappings": [
+        {
+          "url": "webpack:///src",
+          "path": "${workspaceFolder}/front-end/src"
+        }
+      ],
+      "preLaunchTask": "npm start task" // Optional: run "npm start" before debugging
+    }
+  ]
+
+  // Thursday update: The task is starting but the debugger isn't attaching to the web server.
+  //
+  //  Additionally, two browser tabs are being created. I suspect I can disable that by telling npm to not create a new tab
+
+}
