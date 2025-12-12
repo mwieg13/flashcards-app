@@ -1,5 +1,11 @@
 <section class="view-decks">
-  <h2>Decks</h2>
+
+  <div>
+    <h2>Decks</h2>
+    <button class="btn" (click)="createNewDeck()">Create New Deck</button>
+  </div>
+
+  
 
   <!-- dialogs are opened via MatDialog in the component -->
 
@@ -9,6 +15,7 @@
         <h3 class="deck-name">{{ deck.name }}</h3>
         <p class="deck-description">{{ deck.description }}</p>
         <p>There are {{ deck.cards.length }} cards in this deck.</p>
+
         <div class="actions">
           <button class="btn" (click)="openDeckModal(deck)">View details</button>
         </div>

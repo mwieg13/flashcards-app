@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { DeckSummary } from '../../pages/view-decks/view-decks.component';
+import { DeckModel } from '../../models/deck.model';
 
 
 @Component({
@@ -13,15 +13,13 @@ export class EditDeckDialogComponent {
   title: string;
   name: string;
   description: string;
-  // data: DeckSummary;
 
   constructor(
     private dialogRef: MatDialogRef<EditDeckDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DeckSummary
+    @Inject(MAT_DIALOG_DATA) public data: DeckModel
   ) {
-    // determine if this a new deck by checking the value of the name
+    // determine if this a new deck by checking if the Deck already has a name
     this.title = data.name.length == 0 ? "New Deck" : "Edit Deck";
-    // this.title = "Test";
 
     this.name = data.name;
     this.description = data.description;
@@ -29,10 +27,12 @@ export class EditDeckDialogComponent {
   }
 
   save() {
+    // TODO - replace two-way data binding with call to backend API
     this.data.name = this.name;
     this.data.description = this.description;
+    this.data.isEdited = true;
 
-    this.dialogRef.close();
+    this.dialogRef.close(this.data);
   }
 
   close() {
